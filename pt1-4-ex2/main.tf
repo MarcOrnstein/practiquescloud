@@ -77,8 +77,6 @@ resource "aws_instance" "ex2_subnet1_instances" {
   instance_type = "t3.micro"
 
   subnet_id       = aws_subnet.ex2_subnet1.id
-  associate_with_default_associate_public_ip_address = true
-
   tags = {
     Name = "practiquescloud-ex2-subnet1-instance-${count.index + 1}"
     Project = "practiquescloud"
@@ -95,8 +93,6 @@ resource "aws_instance" "ex2_subnet2_instances" {
   instance_type = "t3.micro"
 
   subnet_id       = aws_subnet.ex2_subnet2.id
-  associate_with_default_associate_public_ip_address = true
-
   tags = {
     Name = "practiquescloud-ex2-subnet2-instance-${count.index + 1}"
     Project = "practiquescloud"
@@ -113,8 +109,6 @@ resource "aws_instance" "ex2_subnet3_instances" {
   instance_type = "t3.micro"
 
   subnet_id       = aws_subnet.ex2_subnet3.id
-  associate_with_default_associate_public_ip_address = true
-
   tags = {
     Name = "practiquescloud-ex2-subnet3-instance-${count.index + 1}"
     Project = "practiquescloud"
