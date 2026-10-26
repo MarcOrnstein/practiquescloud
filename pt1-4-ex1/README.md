@@ -13,7 +13,8 @@
 ## 1. Objectiu
 
 L'objectiu d'aquest exercici és desplegar de manera automàtica, amb **Terraform**, la
-infraestructura bàsica següent a **AWS** (regió `us-east-1`):
+infraestructura bàsica següent a **AWS** (regió `us-east-1`, VPC per defecte
+`vpc-078a64a5dcb3e7dd6`):
 
 - **2 instàncies EC2** de tipus `t3.micro`.
 - Sistema operatiu **Amazon Linux 2023**, seleccionat dinàmicament amb un bloc
@@ -32,12 +33,18 @@ forma reproduïble.
 
 | Recurs | Descripció |
 |---|---|
-| Regió | `us-east-1` (N. Virginia) |
+| Regió / zona | `us-east-1` (N. Virginia) |
+| VPC | `vpc-078a64a5dcb3e7dd6` (VPC per defecte, CIDR `172.31.0.0/16`) |
 | Instàncies | `2` |
 | Tipus d'instància | `t3.micro` |
 | AMI | Amazon Linux 2023 (`al2023-ami-2023.*-x86_64`, la més recent) |
-| Xarxa | VPC per defecte (subxarxa pública) |
+| Xarxa | Subxarxa pública de la VPC per defecte |
 | Accés | IP pública assignada automàticament |
+
+Les instàncies es despleguen a la **VPC per defecte** del compte
+(`vpc-078a64a5dcb3e7dd6`, `172.31.0.0/16`) dins de la regió **`us-east-1`
+(N. Virginia)**. El codi no crea cap VPC nova: aprofita la xarxa per defecte del
+compte d'AWS.
 
 ---
 
@@ -45,6 +52,7 @@ forma reproduïble.
 
 ```text
 pt1-4-ex1/
+├── .gitignore           # Exclou l'estat i els fitxers generats per Terraform
 ├── main.tf              # Configuració de Terraform (provider, AMI, EC2 i outputs)
 ├── README.md            # Aquest document
 └── assets/
@@ -74,6 +82,10 @@ pt1-4-ex1/
    **No** s'han de pujar mai al repositori.
 
 3. Connexió a Internet perquè Terraform descarregui el provider `hashicorp/aws`.
+
+4. Una **VPC per defecte** al compte d'AWS. En aquest cas s'utilitza
+   `vpc-078a64a5dcb3e7dd6` (`172.31.0.0/16`) a `us-east-1`. Si el compte no en
+   té cap, cal crear-ne una o indicar una subxarxa existent al codi.
 
 ---
 
@@ -183,7 +195,7 @@ Comprova que la sortida sigui `Destroy complete! Resources: 2 destroyed.`
 
 Terraform genera fitxers i directoris que **no** s'han de versionar
 (`.terraform/`, `terraform.tfstate*`, `.terraform.lock.hcl` és opcional).
-Es recomana afegir un `.gitignore` al repositori amb:
+El projecte ja inclou un `.gitignore` amb:
 
 ```gitignore
 .terraform/
@@ -213,6 +225,9 @@ en acabar.
 |---|---|---|
 | `aws_instance.web[0]` | `t3.micro` | `practiquescloud-ex1-instance-1` |
 | `aws_instance.web[1]` | `t3.micro` | `practiquescloud-ex1-instance-2` |
+
+**Entorn:** regió `us-east-1` (N. Virginia) — VPC per defecte
+`vpc-078a64a5dcb3e7dd6` (`172.31.0.0/16`)
 
 **Outputs:** `instance_ids`, `public_ips`
 
