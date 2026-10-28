@@ -27,7 +27,7 @@ Amb aquest exercici es practiquen els conceptes d **Infraestructura com a Codi (
 
 ### Topologia de la xarxa
 
-![Topologia de la infraestructura](assets/topologia.png?v=2)
+![Topologia de la infraestructura](https://raw.githubusercontent.com/MarcOrnstein/practiquescloud/8e8f7fb595ccdb3eb978df7b47226711e41df3b2/pt1-4-ex2/assets/topologia.png)
 
 ### Càlculs de subxarxes
 
@@ -180,11 +180,11 @@ Comprova que la sortida sigui `Destroy complete! Resources: 6 destroyed.`
 
 Les següents images s'han de ubicar en la carpeta `assets/`:
 
-![Topologia de la infraestructura](assets/topologia.png?v=2)
+![Topologia de la infraestructura](https://raw.githubusercontent.com/MarcOrnstein/practiquescloud/8e8f7fb595ccdb3eb978df7b47226711e41df3b2/pt1-4-ex2/assets/topologia.png)
 
-![Subxarxes de la VPC](assets/vpc_subnets.png?v=2)
+![Subxarxes de la VPC](https://raw.githubusercontent.com/MarcOrnstein/practiquescloud/8e8f7fb595ccdb3eb978df7b47226711e41df3b2/pt1-4-ex2/assets/vpc_subnets.png)
 
-![Instàncies EC2](assets/ec2_instances.png?v=2)
+![Instàncies EC2](https://raw.githubusercontent.com/MarcOrnstein/practiquescloud/8e8f7fb595ccdb3eb978df7b47226711e41df3b2/pt1-4-ex2/assets/ec2_instances.png)
 
 ---
 
