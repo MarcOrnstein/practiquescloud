@@ -10,7 +10,7 @@ Desplegament amb **Terraform** d'una VPC `10.0.0.0/16` a `us-east-1`, amb 3 subx
 a `us-east-1a` (`10.0.1.0/24`, `10.0.2.0/24`, `10.0.3.0/24`) i **6 instàncies EC2
 `t3.micro`** amb Amazon Linux 2023 (2 per subxarxa).
 
-![Topologia de l'Exercici 2](pt1-4-ex2/assets/topologia.png)
+![Topologia de l'Exercici 2](pt1-4-ex2/assets/topologia.png?v=2)
 
 - 📄 [Documentació de l'Exercici 2](pt1-4-ex2/README.md)
 - 💻 [Codi Terraform](pt1-4-ex2/main.tf)
