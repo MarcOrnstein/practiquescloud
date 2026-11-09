@@ -11,8 +11,11 @@ dues subxarxes públiques (`10.0.1.0/24` a `us-east-1a` i `10.0.2.0/24` a `us-ea
 Internet Gateway, taula de rutes pública, Security Group (SSH, ICMP intern i egress)
 i **2 instàncies EC2 `t3.micro`** amb Amazon Linux 2023 (`ec2-a` i `ec2-b`).
 
+![Topologia de la Pràctica 2.2](pt2-2/assets/topologia.png)
+
 - 📄 [Documentació de la Pràctica 2.2](pt2-2/README.md)
-- 💻 [Codi Terraform](pt2-2/)
+- 💻 [Codi Terraform](pt2-2/main.tf)
+- 🖼️ [Imatges del desplegament](pt2-2/assets/)
 
 ### Exercici 2 — VPC personalitzada i 6 instàncies EC2
 

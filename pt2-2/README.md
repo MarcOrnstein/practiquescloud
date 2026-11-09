@@ -35,30 +35,10 @@ conceptes d'**Infraestructura com a Codi (IaC)**:
 
 ## 2. Arquitectura
 
-```mermaid
-flowchart TB
-    Internet((Internet))
+![Topologia de la infraestructura](assets/topologia.png)
 
-    subgraph VPC03["VPC-03 · 10.0.0.0/16"]
-        IGW[Internet Gateway<br/>VPC-03-IGW]
-        RT[Taula de rutes pública<br/>0.0.0.0/0 → IGW]
-        SUBA[Public Subnet A<br/>10.0.1.0/24 · us-east-1a]
-        SUBB[Public Subnet B<br/>10.0.2.0/24 · us-east-1b]
-        A[ec2-a<br/>t3.micro]
-        B[ec2-b<br/>t3.micro]
-        SG[Security Group VPC-03-SG<br/>SSH 22 · ICMP intern · egress total]
-
-        IGW --- RT
-        RT --- SUBA
-        RT --- SUBB
-        SUBA --- A
-        SUBB --- B
-        SG -. protegeix .-> A
-        SG -. protegeix .-> B
-    end
-
-    Internet --- IGW
-```
+> Diagrama de la infraestructura desplegada: Internet, Internet Gateway, VPC-03,
+> taula de rutes, subxarxes públiques A/B, Security Group i instàncies EC2.
 
 ### Resum de xarxes
 
@@ -77,13 +57,16 @@ instància llançada en elles rep automàticament una IP pública.
 
 ```text
 pt2-2/
-├── provider.tf      # Versió de Terraform, provider AWS i regió us-east-1
-├── vpc.tf           # VPC-03, subxarxes, Internet Gateway i taula de rutes
-├── security.tf      # Security Group i regles d'entrada/sortida
-├── ec2.tf           # AMI d'Amazon Linux 2023 i instàncies ec2-a / ec2-b
-├── outputs.tf       # IDs, IPs públiques/privades i comandes SSH
-├── README.md        # Aquesta documentació
-└── .gitignore       # Exclou state, .terraform/ i claus .pem
+├── assets/
+│   └── topologia.png    # Diagrama de la infraestructura
+├── main.tf              # Versió de Terraform, provider AWS i regió us-east-1
+├── vpc.tf               # VPC-03, subxarxes, Internet Gateway i taula de rutes
+├── security.tf          # Security Group i regles d'entrada/sortida
+├── ec2.tf               # AMI d'Amazon Linux 2023 i instàncies ec2-a / ec2-b
+├── outputs.tf           # IDs, IPs públiques/privades i comandes SSH
+├── README.md            # Aquesta documentació
+├── .gitignore           # Exclou state, .terraform/ i claus .pem
+└── .terraform.lock.hcl  # Lock del provider AWS (recomanat versionar)
 ```
 
 ---
