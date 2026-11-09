@@ -4,6 +4,16 @@ Pràctiques del mòdul de **Cloud Computing (ASIX2)** — Marc Hernandez Domingu
 
 ## Exercicis
 
+### Pràctica 2.2 (Pt2.2) — VPC-03, subxarxes públiques i 2 instàncies EC2
+
+Desplegament amb **Terraform** d'una VPC `VPC-03` (`10.0.0.0/16`) a `us-east-1`, amb
+dues subxarxes públiques (`10.0.1.0/24` a `us-east-1a` i `10.0.2.0/24` a `us-east-1b`),
+Internet Gateway, taula de rutes pública, Security Group (SSH, ICMP intern i egress)
+i **2 instàncies EC2 `t3.micro`** amb Amazon Linux 2023 (`ec2-a` i `ec2-b`).
+
+- 📄 [Documentació de la Pràctica 2.2](pt2-2/README.md)
+- 💻 [Codi Terraform](pt2-2/)
+
 ### Exercici 2 — VPC personalitzada i 6 instàncies EC2
 
 Desplegament amb **Terraform** d'una VPC `10.0.0.0/16` a `us-east-1`, amb 3 subxarxes

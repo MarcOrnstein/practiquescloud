@@ -1,0 +1,15 @@
+# Fitxers generats per Terraform que no s'han de versionar
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Claus SSH (no pujar mai al repositori)
+*.pem
